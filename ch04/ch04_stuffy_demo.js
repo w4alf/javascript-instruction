@@ -24,12 +24,14 @@ let s3 = {
 let stuffies = [s1,s2,s3];
 
 for (let s of stuffies) {
-   // console.log(s);
+    
+    console.log("+++++++++  Stuffy stuff ++++++++++++");
+    // console.log(s);
    //console.log("Stuffy " +s.id, "type " + s.type);
    //console.log(Object.keys(s));
+   
    for (let k of Object.keys(s)) {
-    console.log("+++++++++  Stuffy stuff ++++++++++++");
-    console.log("property " + k + " , value: " +s[k])
+            console.log("property " + k + " , value: " +s[k])
    }
 
   

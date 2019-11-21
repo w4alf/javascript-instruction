@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+<h3>Favorite Thing App</h3><br>
+    <table>
+        <tr>
+            <td>
+                <label for="">ID:</label>
+            </td>
+            <td>
+               <input id="id_in" type="text">
+            </td>   
+        </tr>
+        <tr>
+           <td>
+                <label for="">Favorite Thing:</label>
+           </td>
+           <td>
+                <input id="thing_in" type="text">
+           </td> 
+        </tr>
+        <tr>
+                <td>
+                        <label for="">Why?:</label> 
+                </td>
+                <td>
+                        <input id="why_in" type="text">
+                </td> 
+             </tr>
+             <tr>
+                    <td>
+                            
+                    </td>
+                    <td>
+                            <button onclick="addFavorite()">Add Favorite</button>
+                    </td> 
+                 </tr>
+    </table>  
+
+
+<br>
+
+    <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>favorite thing</th>
+                <th>Why?</th>
+       
+            </tr>
+            </thead>
+            
+            <tbody id="tbFav">
+           
+            <tr>
+               <td>
+                    
+               </td> 
+               <td>
+               
+                </td> 
+                <td>
+                    
+                </td> 
+            </tr>
+            </tbody>
+
+        </table>  
+
+
+
+<script>
+
+let favorites = [];
+displayTable();
+
+function addFavorite() {
+
+    let id_ctrl= document.getElementById("id_in");
+    let thing_ctrl= document.getElementById("thing_in");
+    let why_ctrl= document.getElementById("why_in");
+
+    let favorite = {
+        id: id_ctrl.value,
+        thing: thing_ctrl.value,
+        why: why_ctrl.value
+      };
+
+      favorites.push(favorite);
+
+      //console.log(favorites);
+
+      displayTable();
+
+      id_ctrl.value="";
+      thing_ctrl.value="";
+      why_ctrl.value="";
+}
+
+function displayTable() {
+
+    let tbdy = document.getElementById("tbFav");
+
+    id_val = 'n/a';
+    thing_val = 'No favorites yet.';
+    why_val = 'n/a';
+
+    tbdy.innerHTML="";
+
+        //Do we have any favorites yet? 
+        if (favorites.length!=0) {
+            //yes create tbody
+            for (let favorite of favorites) {
+                addTableBodyRow(tbdy,favorite.id,favorite.thing,favorite.why);
+            }
+
+        } else {
+            addTableBodyRow(tbdy,id_val,thing_val,why_val);
+        }
+
+
+
+}
+
+function addTableBodyRow (tbdy,id_val,thing_val,why_val){
+
+    let tr = document.createElement("tr");
+            //first td
+            let td1 = document.createElement("td");
+            td1.appendChild(document.createTextNode(id_val));
+            tr.appendChild(td1);
+            //second td
+            let td2 = document.createElement("td");
+            td2.appendChild(document.createTextNode(thing_val));
+            tr.appendChild(td2);
+            //third td
+            let td3 = document.createElement("td");
+            td3.appendChild(document.createTextNode(why_val));
+            tr.appendChild(td3);
+
+            //add the row to the body
+            tbdy.appendChild(tr);
+}
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

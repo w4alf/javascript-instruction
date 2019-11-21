@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <table>
+        <tr>
+            <td>
+                <label for="">Frames:</label>
+            </td>
+            <td>
+              <div id="frameSum"></div>
+            </td>   
+        </tr>
+        <tr>
+           <td>
+                <label for="">Total:</label>
+           </td>
+           <td>
+                <input id="totScore" type="text" value="0">
+           </td> 
+        </tr>
+        <tr>
+                <td>
+                     
+                </td>
+                <td>
+                   <button id="bowl" onclick="calc()">BOWL!</button>
+                </td> 
+             </tr>
+    </table>
+
+   <script>
+    
+    function calc() {
+    let totalScore = 0;
+    let arryFrames = [];
+    for (let i = 0; i<10;i++) {
+        let bowlFrames = Math.ceil(Math.random()*11);
+        arryFrames[i] = bowlFrames;
+        
+        totalScore += bowlFrames;
+    }
+
+    document.getElementById("totScore").value= totalScore;
+    document.getElementById("frameSum").innerHTML = arryFrames;
+    }
+
+    </script>
+    
+</body>
+</html>

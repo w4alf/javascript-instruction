@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+        <button id="decr" onclick="doIt('decr')">-</button>
+        <input id="theNbr" type="text" value="0">
+        <button id="incr" onclick="doIt('incr')">+</button>
+    
+
+<script>
+ let nbr = 0;
+function doIt(butDirection) {
+
+
+   
+
+    let theTag = document.getElementById("theNbr");
+
+    if(butDirection=="incr") {
+
+        nbr++;
+    }
+
+    if(butDirection=="decr") {
+
+        nbr--;
+
+    }
+
+    if(theTag.value%2==0){
+        theTag.style.color = "red";
+        theTag.style.fontSize ="1em";
+    } else {
+        theTag.style.color = "black";
+        theTag.style.fontSize ="1em";
+    }
+
+    
+    if(theTag.value%3==0){
+        theTag.style.fontStyle ="italic";
+        theTag.style.fontSize ="1em";
+    }
+
+
+    if(theTag.value%7==0){
+        theTag.style.fontSize ="2.5em";
+       
+    }
+
+    document.getElementById("theNbr").value= nbr;
+
+
+   /* theTag.innerHTML = "I changed the tag!";
+    theTag.style.color = "red";
+    theTag.style.fontStyle ="italic";
+    theTag.style.fontSize ="2.5em";
+    */
+    
+    
+    
+}
+
+</script>    
+
+
+
+
+</body>
+</html>
